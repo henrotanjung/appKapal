@@ -12,7 +12,7 @@ class KapalAbstract(ABC):
     def simpan_data(self):
         pass
 
-class Kapal(KapalAbstract):
+class KapalInterface(KapalAbstract):
 
     def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi):
         self.__cleats = cleats
@@ -24,17 +24,32 @@ class Kapal(KapalAbstract):
         self.__kulit_kapal = kulit_kapal
         self.__jangkar = jangkar
         self.__kemudi = kemudi
+    
+    def get_properties(self):
+        properties = {
+            'cleats': self.__cleats,
+            'haluan': self.__haluan,
+            'lambung': self.__lambung,
+            'deck': self.__deck,
+            'buritan': self.__buritan,
+            'lunas_kapal': self.__lunas_kapal,
+            'kulit_kapal': self.__kulit_kapal,
+            'jangkar': self.__jangkar,
+            'kemudi': self.__kemudi
+        }
+        return properties
 
     def simpan_data(self):
         """simpan data ke database"""
         print ('data disimpan')
         
 
-class PerahuMotor(Kapal):
+class PerahuMotor(KapalInterface):
 
-    def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi, lampu_navigasi):
+    def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, 
+        kemudi, lampu_navigasi):
 
-        Kapal.__init__(cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi)
+        KapalInterface.__init__(cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi)
 
         self.__lampu_navigasi = lampu_navigasi
     
@@ -48,14 +63,15 @@ class PerahuMotor(Kapal):
         print ('data perahu motor disimpan')
 
 
-class PerahuLayar(Kapal):
+class PerahuLayar(KapalInterface):
     linggi: str
     tiang_layar: str
     layar: str
 
-    def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi, linggi, tiang_layar, layar):
+    def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal,
+                kemudi, linggi, tiang_layar, layar):
 
-        Kapal.__init__(cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi)
+        KapalInterface.__init__(cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi)
         
         self.__linggi = linggi
         self.__tiang_layar = tiang_layar
@@ -73,11 +89,12 @@ class PerahuLayar(Kapal):
         print ('data perahu layar disimpan')
 
 
-class KapalPesiar(Kapal):
+class KapalPesiar(KapalInterface):
 
-    def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi, anjungan, bak, sekat_pelanggaran, lampu_navigasi, gunwales, mesin):
+    def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi,
+                anjungan, bak, sekat_pelanggaran, lampu_navigasi, gunwales, mesin):
         
-        Kapal.__init__(cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi)
+        KapalInterface.__init__(cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi)
         
         self.__anjungan = anjungan
         self.__bak = bak

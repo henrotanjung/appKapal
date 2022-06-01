@@ -18,3 +18,14 @@ Bagian kapal secara umum:
  buritan, propeller, kulit_kapal, geladak_utama, anjungan, lambung, lunas_kapal, bak, sekat_pelanggaran,
 
  haluan: str buritan: str port: str kanan: str null: str gunwales: str transom: str cleat: str lampu navigasi: str
+
+
+ self.__cleats = cleats
+        self.__haluan = haluan
+        self.__lambung = lambung
+        self.__deck = deck
+        self.__buritan = buritan
+        self.__lunas_kapal = lunas_kapal
+        self.__kulit_kapal = kulit_kapal
+        self.__jangkar = jangkar
+        self.__kemudi = kemudi

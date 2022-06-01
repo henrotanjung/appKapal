@@ -6,7 +6,8 @@ class A:
         print(self, paramA)
 
 class B(A):
-    def __init__(self, paramA, paramB):
+    def __init__(self, paramA, 
+        paramB):
         self.paramB = paramB
         A.__init__(self, paramA)
 
