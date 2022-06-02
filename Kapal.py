@@ -15,29 +15,15 @@ class KapalAbstract(ABC):
 class KapalInterface(KapalAbstract):
 
     def __init__(self, cleats, haluan, jangkar, lambung, deck, buritan, lunas_kapal, kulit_kapal, kemudi):
-        self.__cleats = cleats
-        self.__haluan = haluan
-        self.__lambung = lambung
-        self.__deck = deck
-        self.__buritan = buritan
-        self.__lunas_kapal = lunas_kapal
-        self.__kulit_kapal = kulit_kapal
-        self.__jangkar = jangkar
-        self.__kemudi = kemudi
-    
-    def get_properties(self):
-        properties = {
-            'cleats': self.__cleats,
-            'haluan': self.__haluan,
-            'lambung': self.__lambung,
-            'deck': self.__deck,
-            'buritan': self.__buritan,
-            'lunas_kapal': self.__lunas_kapal,
-            'kulit_kapal': self.__kulit_kapal,
-            'jangkar': self.__jangkar,
-            'kemudi': self.__kemudi
-        }
-        return properties
+        self.cleats = cleats
+        self.haluan = haluan
+        self.lambung = lambung
+        self.deck = deck
+        self.buritan = buritan
+        self.lunas_kapal = lunas_kapal
+        self.kulit_kapal = kulit_kapal
+        self.jangkar = jangkar
+        self.kemudi = kemudi
 
     def simpan_data(self):
         """simpan data ke database"""
@@ -103,7 +89,43 @@ class KapalPesiar(KapalInterface):
         self.__gunwales = gunwales
         self.__mesin = mesin
     
-    def get_properties(self):
+    def set__anjungan(self, anjungan):
+        self.__anjungan = anjungan
+
+    def set__bak(self, bak):
+        self.__bak = bak
+
+    def set__sekat_pelanggaran(self, sekat_pelanggaran):
+        self.sekat_pelanggaran = sekat_pelanggaran
+
+    def set__lampu_navigasi(self, lampu_navigasi):
+        self.__lampu_navigasi = lampu_navigasi
+
+    def set__gunwales(self, gunwales):
+        self.__gunwales = gunwales
+
+    def set__mesin(self, mesin):
+        self.__mesin = mesin
+    
+    def get__anjungan(self, anjungan):
+        return self.__anjungan
+
+    def get__bak(self, bak):
+        return self.__bak
+
+    def get__sekat_pelanggaran(self, sekat_pelanggaran):
+        self.sekat_pelanggaran = sekat_pelanggaran
+
+    def get__lampu_navigasi(self, lampu_navigasi):
+        return self.__lampu_navigasi
+
+    def get__gunwales(self, gunwales):
+        return self.__gunwales
+
+    def get__mesin(self, mesin):
+        return self.__mesin
+    
+    def get_all_properties(self):
         properties = {
             'anjungan': self.__anjungan,
             'bak': self.__bak,
